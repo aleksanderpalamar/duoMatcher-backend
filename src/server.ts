@@ -4,17 +4,10 @@ import cors from "cors";
 import { convertHourStringToMinutes } from "./utils/convert-hour-string-to-minutes";
 import { convertMinutesToHourString } from "./utils/convert-minutes-to-hour-string";
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://duo-matcher-frontend-lpkv.vercel.app/"
-];
-
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: 'https://duo-matcher-frontend-lpkv.vercel.app/'
-}));
+app.use(cors({ credentials: true }));
 
 const prisma = new PrismaClient();
 
