@@ -24,16 +24,7 @@ const allowedOrigins = [
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({
-    origin: function (origin, callback) {
-        if (!origin)
-            return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not ' +
-                'allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    }
+    origin: 'https://duo-matcher-frontend-lpkv.vercel.app/'
 }));
 const prisma = new client_1.PrismaClient();
 app.get("/games", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
